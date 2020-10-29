@@ -32,7 +32,6 @@ export class InfluxService {
   }
 
   private getWriteApi(): WriteApi {
-    console.log(process.env.INFLUX_URL);
     return new InfluxDB({url: process.env.INFLUX_URL, token: process.env.INFLUX_TOKEN}).getWriteApi(process.env.INFLUX_ORGANIZATION, process.env.INFLUX_BUCKET, WritePrecision.ns);
   }
 }

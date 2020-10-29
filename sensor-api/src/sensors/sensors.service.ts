@@ -11,7 +11,6 @@ export class SensorService {
   constructor(@InjectRepository(Sensor) private readonly sensorRepository: EntityRepository<Sensor>) {}
 
   addPendingSensor(pendingSensor: Sensor) {
-    console.log("Adding sernsor", pendingSensor);
     this.pendingSensors.push(pendingSensor);
   }
 

@@ -19,9 +19,7 @@ export class RuuvitagController {
 
   @MessagePattern(`${process.env.MQTT_TOPIC_PREFIX}/ruuvitag/found`)
   async handleRuuvitagFound(@Payload() data: any) {
-    console.log("Tag found");
     const sensor = await this.sensorService.findSensorByIdentifier(data.identifier);
-    console.log(sensor);
     if (!sensor) {
       const pendingSensor = new Sensor(data.identifier, data.identifier, SensorType.RUUVITAG);
       this.sensorService.addPendingSensor(pendingSensor);

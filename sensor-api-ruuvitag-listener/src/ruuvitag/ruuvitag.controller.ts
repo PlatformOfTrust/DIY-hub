@@ -18,14 +18,14 @@ export class RuuvitagController implements OnApplicationBootstrap {
   onApplicationBootstrap() {
     ruuvi.on('found', tag => {
       this.logger.log(`Discoreved ruuvitag with identifier ${tag.id}`);
-      this.client.emit('ruuvitag_found', { identifier: tag.id });
+      this.client.emit(`${process.env.MQTT_TOPIC_PREFIX}/ruuvitag/found`, { identifier: tag.id });
       tag.on('updated', data => {
         this.logger.log(`Ruuvitag with identifier ${tag.id} sent data`);
         const reading: Reading = {
           identifier: tag.id,
           data: data
         };
-        this.client.emit('ruuvitag_update', reading);
+        this.client.emit(`${process.env.MQTT_TOPIC_PREFIX}/ruuvitag/update`, reading);
       });
     });
   }

@@ -9,7 +9,6 @@ export class SensorsController {
   @Get()
   async list(@Query("pending") pending: boolean) {
     if (pending) {
-      console.log("Listing pending sensors");
       return this.sensorService.listPendingSensors();
     }
     return await this.sensorService.listSensors();
