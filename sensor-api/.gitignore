@@ -35,3 +35,4 @@ lerna-debug.log*
 sensor-api.sqlite3
 RS256.key
 RS256.key.pub
+.env
