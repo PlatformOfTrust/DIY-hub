@@ -1,0 +1,1 @@
+export const RUUVITAG_SERVICE = 'RUUVITAG_SERVICE';

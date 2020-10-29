@@ -1,0 +1,20 @@
+body {
+  background-color: var(--surface-b);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.content {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.card {
+  padding-top: 5rem;
+}
+
+.confirmation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
