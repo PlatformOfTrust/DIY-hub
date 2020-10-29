@@ -33,6 +33,7 @@
     "dotenv": "^8.2.0",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
+    "mqtt": "^4.2.3",
     "node-fetch": "^2.6.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
