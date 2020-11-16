@@ -22,9 +22,10 @@
   },
   "dependencies": {
     "@influxdata/influxdb-client": "^1.6.0",
-    "@mikro-orm/core": "^4.0.0-rc.6",
-    "@mikro-orm/nestjs": "^4.0.0-alpha.4",
-    "@mikro-orm/sqlite": "^4.0.0-rc.6",
+    "@mikro-orm/core": "^4.3.0",
+    "@mikro-orm/migrations": "^4.3.0",
+    "@mikro-orm/nestjs": "^4.2.0",
+    "@mikro-orm/sqlite": "^4.3.0",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/microservices": "^7.4.4",

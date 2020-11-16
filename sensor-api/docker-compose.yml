@@ -1,0 +1,37 @@
+version: "3"
+services:
+  mqtt:
+    image: eclipse-mosquitto:1.6.12
+    ports: 
+      - 1883:1883
+      - 9001:9001
+  influx:
+    image: quay.io/influxdb/influxdb:v2.0.1
+    ports:
+      - 8086:8086
+      - 9999:9999
+    volumes:
+      - ./influx:/root/.influxdbv2/
+  diy-hub:
+    build: .
+    ports:
+      - 3001:3001
+    depends_on:
+      - influx
+      - mqtt
+    environment:
+      INFLUX_ORGANIZATION: diyhub
+      INFLUX_BUCKET: sensors
+      INFLUX_URL: http://influx:8086
+      INFLUX_TOKEN: initial
+      MQTT_TOPIC_PREFIX: diyhubapi
+      MQTT_URL: mqtt://mqtt:1883
+      DB_FILE: db/diyhub.sqlite3
+    volumes:
+      - sqlite:/usr/src/app/db/
+  diy-hub-ui:
+    build: ../sensor-ui
+    ports:
+      - 3000:3000
+volumes:
+  sqlite:
