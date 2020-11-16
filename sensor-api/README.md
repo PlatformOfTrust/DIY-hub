@@ -73,6 +73,15 @@ NodeJS
 
 If using docker, only docker and docker compose are required.
 
+**Build UI**
+
+If you wish to host Sensor UI with this installation, it first needs to be built.
+this happens by running the build-ui.sh script
+
+```bash
+$ sh build-ui.sh
+```
+
 **Configure InfluxDB**
 
 Depending whether you plan running system with docker or not there is 2 options. If you want to run without docker, start InfluxDB, create organization, bucket and access token. Then provide those to Diy Hub using environment variables.
@@ -121,10 +130,9 @@ $ docker-compose up
 ```
 Wait for all the containers to start and you should have:
 
- - InfluxDB running on localhost at port 9999
+ - InfluxDB running on localhost at port 8086
  - Mosquitto MQTT broker running on port 1883
- - DiyHub API running on port 3001
- - DiyHub UI running on port 3000
+ - DiyHub API (and UI if it was built) running on port 3001
 
 ## Connecting sensors
 You can connect sensors to the DiyHub API either by using RuuviTags and RuuviTag MQTT Gateway or creating your own sensor for example by using ESP32. 

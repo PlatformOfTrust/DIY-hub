@@ -8,6 +8,8 @@ import { SensorsModule } from './sensors/sensors.module';
 import { PlatformOfTrustModule } from './platformoftrust/platformoftrust.module';
 import { InfluxModule } from './influx/influx.module';
 import { ReadingsModule } from './readings/readings.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -16,9 +18,12 @@ import { ReadingsModule } from './readings/readings.module';
     SensorsModule,
     PlatformOfTrustModule,
     InfluxModule,
-    ReadingsModule
+    ReadingsModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'ui'),
+    })
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

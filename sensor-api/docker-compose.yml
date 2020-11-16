@@ -9,7 +9,6 @@ services:
     image: quay.io/influxdb/influxdb:v2.0.1
     ports:
       - 8086:8086
-      - 9999:9999
     volumes:
       - ./influx:/root/.influxdbv2/
   diy-hub:
@@ -29,9 +28,5 @@ services:
       DB_FILE: db/diyhub.sqlite3
     volumes:
       - sqlite:/usr/src/app/db/
-  diy-hub-ui:
-    build: ../sensor-ui
-    ports:
-      - 3000:3000
 volumes:
   sqlite:

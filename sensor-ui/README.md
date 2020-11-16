@@ -1,8 +1,19 @@
+
 Diy HUB UI
 
 ## Description
 
 This is UI component for Diy HUB system.
+
+## Running
+
+In basic installation, UI is hosted by the API. Please refer to "Build UI" section of  [Diy Hub API documentation](https://github.com/PlatformOfTrust/DIY-hub/tree/master/sensor-api)
+
+## Development
+
+For development it will be faster if UI is running as standalone module and not hosted by Diy Hub API.
+
+For that src/api/index.ts file should have API_BASE_URL variable changed to the one that development API instance is using.
 
 ### Following scrips are available:
 
